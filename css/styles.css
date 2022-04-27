@@ -22,10 +22,16 @@ body {
     height: 100%;
     margin: 0;
   }
+
   .gallery img {
     display: block;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+
+  .gallery img {
+    filter: grayscale(100%);
+    transition: filter 300ms linear;
   }
   
   .gallery figure {
@@ -34,13 +40,23 @@ body {
   
   .gallery figcaption {
     font-size: 1.5em;
-    color: white;
-    background: rgba(0, 0, 0, 0.46);
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255);
     position: absolute;
     bottom: 0; 
     left: 0;
-    width: 100%;
+    display: none;
     z-index: 1;
+    padding: 20px;
+  }
+
+  figure:hover img {
+    filter: grayscale(0%);
+    transition: filter 300ms linear;
+  }
+
+  figure:hover figcaption {
+display: block;
   }
     
     .gallery :first-child {
@@ -89,16 +105,3 @@ body {
         grid-column: 1 span;
         grid-row: 2 span;
       }
-
-  .gallery img {
-    width: 100%;
-    filter: grayscale(100%);
-    transition: filter 300ms linear;
-    padding: 5px;
-    box-sizing: border-box;
-      display:inline;
-  }
-
-    img:hover {
-      filter: grayscale(0%);
-    }
